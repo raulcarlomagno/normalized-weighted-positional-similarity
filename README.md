@@ -19,42 +19,42 @@ A structured prior-art review is in [`docs/prior_art_review.md`](docs/prior_art_
 
 Let `h > 0` be the **rank half-life** and define
 
-\[
+$$
 \rho=2^{-1/h}.
-\]
+$$
 
-For reference depth \(k\), normalized reference weights are
+For reference depth $k$, normalized reference weights are
 
-\[
+$$
 w_i=
 \frac{(1-\rho)\rho^{i-1}}{1-\rho^k}.
-\]
+$$
 
-For a retrieved reference item at reference rank \(i\) and predicted rank \(j\),
+For a retrieved reference item at reference rank $i$ and predicted rank $j$,
 
-\[
+$$
 q_i=\rho^{|i-j|}.
-\]
+$$
 
 A confirmed missing reference item receives
 
-\[
+$$
 q_i=0.
-\]
+$$
 
 Then
 
-\[
+$$
 \boxed{
 NWPS(R,P;h)=\sum_{i=1}^{k}w_iq_i
 }
-\]
+$$
 
 with
 
-\[
+$$
 0\le NWPS\le1.
-\]
+$$
 
 - `1` — exact reference fidelity.
 - `0` — confirmed absence of all evaluated reference mass.
@@ -63,30 +63,30 @@ with
 
 Define weighted reference coverage
 
-\[
+$$
 C=\sum_{i:r_i\in P}w_i
-\]
+$$
 
 and conditional positional fidelity
 
-\[
+$$
 F=
 \frac{\sum_{i:r_i\in P}w_iq_i}{C}
-\]
+$$
 
-when \(C>0\), with \(F=0\) when \(C=0\).
+when $C>0$, with $F=0$ when $C=0$.
 
 Then
 
-\[
+$$
 \boxed{NWPS=C\,F}
-\]
+$$
 
 and
 
-\[
+$$
 1-NWPS=(1-C)+C(1-F).
-\]
+$$
 
 That factorization is the main diagnostic interpretation of NWPS:
 
@@ -102,24 +102,24 @@ The half-life has an operational meaning:
 It also controls the geometric decay of reference importance. Base NWPS deliberately
 uses a **single persistence scale** for both effects:
 
-\[
+$$
 \frac{w_{i+1}}{w_i}
 =
 \frac{q(d+1)}{q(d)}
 =
 \rho.
-\]
+$$
 
 This coupling is a modeling assumption and should be calibrated or sensitivity-tested.
 
 ### Semantic calibration
 
-If a task says that displacement \(d\) should retain fraction \(r\), then
+If a task says that displacement $d$ should retain fraction $r$, then
 
-\[
+$$
 \boxed{
 h=-\frac{d\ln2}{\ln r}.}
-\]
+$$
 
 ```python
 from nwps import half_life_from_retention
@@ -226,13 +226,13 @@ credit over its possible ranks.
 ## Chance calibration
 
 Raw NWPS is a direct fidelity score, not a chance-corrected statistic.
-For a declared null expectation \(B\), the optional reporting transform is
+For a declared null expectation $B$, the optional reporting transform is
 
-\[
+$$
 \boxed{
 NWPS_{skill}=\frac{NWPS-B}{1-B}.
 }
-\]
+$$
 
 ```python
 from nwps import uniform_permutation_baseline, nwps_skill

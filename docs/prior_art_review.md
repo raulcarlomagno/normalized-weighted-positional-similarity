@@ -86,20 +86,20 @@ https://jmmackenzie.io/publication/sigir25-resource/
 
 For complete observations:
 
-\[
+$$
 \operatorname{NWPS} = C \times F,
-\]
+$$
 
 where:
 
-- \(C\) is **weighted reference coverage**;
-- \(F\) is **conditional positional fidelity** among observed reference mass.
+- $C$ is **weighted reference coverage**;
+- $F$ is **conditional positional fidelity** among observed reference mass.
 
 The corresponding loss decomposition is:
 
-\[
+$$
 1-\operatorname{NWPS}=(1-C)+C(1-F).
-\]
+$$
 
 This is not merely a restatement of “top weighted ranking similarity”; it gives an operational diagnostic split between **omission** and **reordering** while keeping one scalar fidelity score.
 
@@ -107,17 +107,17 @@ The review did not identify this exact factorization and semantics in the closes
 
 ### 5. The shared half-life is distinctive but must be justified
 
-NWPS uses one persistence factor \(\rho\) for both:
+NWPS uses one persistence factor $\rho$ for both:
 
-\[
+$$
 \frac{w_{i+1}}{w_i}=\rho
-\]
+$$
 
 and:
 
-\[
+$$
 \frac{q(d+1)}{q(d)}=\rho.
-\]
+$$
 
 This yields the persistence-consistency property for downward moves. It also couples head importance and displacement tolerance, so calibration must acknowledge both meanings.
 

@@ -24,35 +24,35 @@ cares about the identity of specific reference items, gives greater importance
 to the reference head, penalizes positional displacement smoothly, and
 separates omission from reordering.
 
-Let \(h>0\) denote a rank half-life and \(\rho=2^{-1/h}\). Reference-position
+Let $h>0$ denote a rank half-life and $\rho=2^{-1/h}$. Reference-position
 mass follows a normalized geometric distribution,
 
-\[
+$$
 w_i=\frac{(1-\rho)\rho^{i-1}}{1-\rho^k},
-\]
+$$
 
-and a retrieved item displaced by \(d\) ranks receives positional credit
-\(q=\rho^d\). A confirmed missing item receives zero credit. The strict-ranking
+and a retrieved item displaced by $d$ ranks receives positional credit
+$q=\rho^d$. A confirmed missing item receives zero credit. The strict-ranking
 score is
 
-\[
+$$
 \operatorname{NWPS}(R,P;h)=\sum_iw_iq_i,
-\]
+$$
 
-with \(0\le\operatorname{NWPS}\le1\).
+with $0\le\operatorname{NWPS}\le1$.
 
 The central diagnostic property is the exact factorization
 
-\[
+$$
 \operatorname{NWPS}=C\,F,
-\]
+$$
 
-where \(C\) is weighted reference coverage and \(F\) is conditional positional
+where $C$ is weighted reference coverage and $F$ is conditional positional
 fidelity among observed reference mass. This yields
 
-\[
+$$
 1-\operatorname{NWPS}=(1-C)+C(1-F),
-\]
+$$
 
 separating omission loss from positional loss.
 
@@ -91,30 +91,30 @@ This question is narrower than generic retrieval quality.
 
 Let the reference horizon be
 
-\[
+$$
 R_k=(r_1,\ldots,r_k)
-\]
+$$
 
 and let the observed prediction be
 
-\[
+$$
 P_m=(p_1,\ldots,p_m).
-\]
+$$
 
-The roles of \(k\) and \(m\) differ:
+The roles of $k$ and $m$ differ:
 
-- \(k\) defines which reference items are in evaluation scope;
-- \(m\) defines how much of the produced ranking is observed.
+- $k$ defines which reference items are in evaluation scope;
+- $m$ defines how much of the produced ranking is observed.
 
-A predicted item below reference depth \(k\) remains evaluable if its rank is
+A predicted item below reference depth $k$ remains evaluable if its rank is
 observed.
 
 NWPS is directional because the reference supplies priority and acceptable
 positions:
 
-\[
+$$
 NWPS(R,P)\neq NWPS(P,R)
-\]
+$$
 
 in general.
 
@@ -208,7 +208,7 @@ deviation, and chance-level interpretation.
 
 The strongest NWPS-specific candidate contribution is the integrated semantics:
 
-\[
+$$
 \boxed{
 \text{reference-priority mass}
 +
@@ -220,7 +220,7 @@ C\times F
 +
 \text{censor-aware bounds}
 }
-\]
+$$
 
 combined with a single rank-persistence scale.
 
@@ -234,42 +234,42 @@ novelty.
 
 Let
 
-\[
+$$
 h>0
-\]
+$$
 
 be the **rank half-life**, and define
 
-\[
+$$
 \boxed{\rho=2^{-1/h}.}
 \tag{1}
-\]
+$$
 
 Then
 
-\[
+$$
 \rho^h=\frac12.
-\]
+$$
 
 Operationally:
 
-> a displacement of \(h\) ranks retains half of positional credit.
+> a displacement of $h$ ranks retains half of positional credit.
 
-Base NWPS deliberately uses the same \(\rho\) for reference-priority decay.
+Base NWPS deliberately uses the same $\rho$ for reference-priority decay.
 
 ## 3.1 Shared persistence assumption
 
 The model imposes
 
-\[
+$$
 \frac{w_{i+1}}{w_i}=\rho
-\]
+$$
 
 and
 
-\[
+$$
 \frac{q(d+1)}{q(d)}=\rho.
-\]
+$$
 
 Thus one additional rank step has the same multiplicative persistence meaning
 in two places:
@@ -280,16 +280,16 @@ in two places:
 This coupling is parsimonious and yields useful algebraic structure, but it is
 also a modeling assumption. A half-life calibrated only from displacement
 semantics is defensible only when the same persistence is acceptable for
-reference-priority decay. Otherwise, calibrate \(h\) against overall
+reference-priority decay. Otherwise, calibrate $h$ against overall
 reference-fidelity judgments or report sensitivity.
 
 ---
 
 # 4. Reference Weights
 
-For reference depth \(k\), define
+For reference depth $k$, define
 
-\[
+$$
 \boxed{
 w_i=
 \frac{(1-\rho)\rho^{i-1}}
@@ -297,39 +297,39 @@ w_i=
 \qquad i=1,\ldots,k.
 }
 \tag{2}
-\]
+$$
 
 The weights are positive and normalized:
 
-\[
+$$
 \boxed{\sum_{i=1}^{k}w_i=1.}
 \tag{3}
-\]
+$$
 
 ## 4.1 Persistent head mass
 
 The top weight satisfies
 
-\[
+$$
 w_1=\frac{1-\rho}{1-\rho^k}
-\]
+$$
 
 and therefore
 
-\[
+$$
 \boxed{\lim_{k\to\infty}w_1=1-\rho>0.}
 \tag{4}
-\]
+$$
 
-The cumulative mass of the top \(r\) ranks is
+The cumulative mass of the top $r$ ranks is
 
-\[
+$$
 \boxed{
 W_{\le r}=
 \frac{1-\rho^r}{1-\rho^k}.
 }
 \tag{5}
-\]
+$$
 
 This makes head importance persistent as the reference horizon grows.
 
@@ -339,28 +339,28 @@ This makes head importance persistent as the reference horizon grows.
 
 # 5. Positional Credit
 
-For a retrieved reference item \(r_i\) at predicted position \(j\), define
+For a retrieved reference item $r_i$ at predicted position $j$, define
 
-\[
+$$
 d_i=|i-j|.
 \tag{6}
-\]
+$$
 
 Its positional credit is
 
-\[
+$$
 \boxed{q_i=\rho^{d_i}.}
 \tag{7}
-\]
+$$
 
 Therefore
 
-\[
+$$
 0<q_i\le1.
-\]
+$$
 
-A one-position displacement always multiplies credit by \(\rho\), independent
-of \(k\).
+A one-position displacement always multiplies credit by $\rho$, independent
+of $k$.
 
 ![Positional credit profiles](images/positional_credit_profiles.png)
 
@@ -368,10 +368,10 @@ of \(k\).
 
 If the item is confirmed absent under the evaluation contract,
 
-\[
+$$
 \boxed{q_i=0.}
 \tag{8}
-\]
+$$
 
 ---
 
@@ -379,16 +379,16 @@ If the item is confirmed absent under the evaluation contract,
 
 For a strict reference and complete observation:
 
-\[
+$$
 \boxed{
 NWPS(R,P;h)=\sum_{i=1}^{k}w_iq_i.
 }
 \tag{9}
-\]
+$$
 
 Equivalently,
 
-\[
+$$
 \boxed{
 NWPS(R,P;h)=
 \sum_{i:r_i\in P}
@@ -396,32 +396,32 @@ NWPS(R,P;h)=
 \rho^{|i-\pi_P(r_i)|}.
 }
 \tag{10}
-\]
+$$
 
 ## 6.1 Bounds
 
-Because \(w_i\ge0\), \(q_i\in[0,1]\), and the weights sum to one,
+Because $w_i\ge0$, $q_i\in[0,1]$, and the weights sum to one,
 
-\[
+$$
 \boxed{0\le NWPS\le1.}
 \tag{11}
-\]
+$$
 
 ## 6.2 Identity
 
-\[
+$$
 \boxed{NWPS(R,R;h)=1.}
 \tag{12}
-\]
+$$
 
 ## 6.3 Confirmed disjointness
 
 If none of the evaluated reference items appears,
 
-\[
+$$
 \boxed{NWPS=0.}
 \tag{13}
-\]
+$$
 
 ---
 
@@ -429,50 +429,50 @@ If none of the evaluated reference items appears,
 
 Define weighted reference coverage
 
-\[
+$$
 \boxed{
 C=\sum_{i:r_i\in P}w_i.
 }
 \tag{14}
-\]
+$$
 
-For \(C>0\), define conditional positional fidelity
+For $C>0$, define conditional positional fidelity
 
-\[
+$$
 \boxed{
 F=
 \frac{\sum_{i:r_i\in P}w_iq_i}{C}.
 }
 \tag{15}
-\]
+$$
 
-Set \(F=0\) if \(C=0\).
+Set $F=0$ if $C=0$.
 
 Then
 
-\[
+$$
 \boxed{NWPS=C\,F.}
 \tag{16}
-\]
+$$
 
 The total loss is
 
-\[
+$$
 \boxed{
 1-NWPS=(1-C)+C(1-F).
 }
 \tag{17}
-\]
+$$
 
 This has direct diagnostic semantics:
 
-- \(1-C\): weighted omission loss;
-- \(C(1-F)\): positional loss among retained reference mass.
+- $1-C$: weighted omission loss;
+- $C(1-F)$: positional loss among retained reference mass.
 
 ![Coverage and position decomposition](images/coverage_position_decomposition_h3.png)
 
 This factorization is one of the principal reasons to report NWPS together with
-\(C\) and \(F\), rather than reporting the scalar alone.
+$C$ and $F$, rather than reporting the scalar alone.
 
 ---
 
@@ -482,16 +482,16 @@ NWPS distinguishes **reference indifference** from **prediction uncertainty**.
 
 ## 8.1 Reference ties
 
-If a reference tie group occupies ranks \(a,\ldots,b\), its items share the
+If a reference tie group occupies ranks $a,\ldots,b$, its items share the
 acceptable interval
 
-\[
+$$
 I_R=[a,b].
-\]
+$$
 
-Distance from predicted rank \(j\) to the interval is
+Distance from predicted rank $j$ to the interval is
 
-\[
+$$
 \boxed{
 d(j,I_R)=
 \begin{cases}
@@ -501,33 +501,33 @@ j-b,&j>b.
 \end{cases}
 }
 \tag{18}
-\]
+$$
 
 Any strict ordering inside the reference tie interval receives zero displacement.
 
 ## 8.2 Reference mass inside a tie block
 
-If group \(G\) occupies positions \(a,\ldots,b\), define
+If group $G$ occupies positions $a,\ldots,b$, define
 
-\[
+$$
 W_G=\sum_{r=a}^{b}w_r.
-\]
+$$
 
 Each tied item receives
 
-\[
+$$
 \boxed{w_x=W_G/|G|.}
 \tag{19}
-\]
+$$
 
 Thus arbitrary internal listing order cannot change item importance.
 
 ## 8.3 Prediction ties
 
-If item \(x\) appears in a prediction tie block spanning ranks \(c,\ldots,d\),
+If item $x$ appears in a prediction tie block spanning ranks $c,\ldots,d$,
 NWPS assigns expected positional credit under uniform resolution:
 
-\[
+$$
 \boxed{
 q_x=
 \frac{1}{d-c+1}
@@ -535,7 +535,7 @@ q_x=
 \rho^{d(r,I_R(x))}.
 }
 \tag{20}
-\]
+$$
 
 A prediction tie against a strict reference therefore receives less than full
 credit unless every possible resolved position is acceptable.
@@ -564,31 +564,31 @@ NWPS treats the second case as uncertainty.
 
 Observed reference-item contributions give
 
-\[
+$$
 \boxed{
 NWPS_L=\sum_{i\in O}w_iq_i.
 }
 \tag{21}
-\]
+$$
 
 ## 9.2 Itemwise upper relaxation
 
-For an unseen strict reference item at zero-based reference position \(i\) and
-an observed prediction of length \(m\), the earliest unseen position is \(m\).
+For an unseen strict reference item at zero-based reference position $i$ and
+an observed prediction of length $m$, the earliest unseen position is $m$.
 Its minimum possible displacement is
 
-\[
+$$
 d_i^{min}=\max(0,m-i).
-\]
+$$
 
 An independent-item relaxation gives
 
-\[
+$$
 NWPS_U^{item}=
 NWPS_L+
 \sum_{i\in U}w_i\rho^{d_i^{min}}.
 \tag{22}
-\]
+$$
 
 This is a valid upper bound but may be loose because multiple items can be
 assigned the same individually optimal future position.
@@ -599,7 +599,7 @@ For strict rankings the release therefore provides a tighter upper bound.
 Unseen items are assigned to **distinct** future ranks to maximize total possible
 contribution:
 
-\[
+$$
 \boxed{
 NWPS_U^{joint}
 =
@@ -608,13 +608,13 @@ NWPS_L+
 \sum_{i\in U}w_i\rho^{|i-\sigma(i)|},
 }
 \tag{23}
-\]
+$$
 
-where \(\sigma\) is an injective assignment to future observed positions.
+where $\sigma$ is an injective assignment to future observed positions.
 
 The implementation solves the finite assignment problem with the Hungarian
 algorithm. Candidate positions from the censoring boundary through
-\(\max(k-1,m+|U|-1)\) suffice for the strict case.
+$\max(k-1,m+|U|-1)$ suffice for the strict case.
 
 The default strict API uses the dependency-free itemwise relaxation. The tighter
 joint-assignment bound is available explicitly when NumPy/SciPy are available.
@@ -632,37 +632,37 @@ point-valued tie semantics are fully implemented.
 
 ## 10.1 Rank-step invariance
 
-\[
+$$
 \frac{q(d+1)}{q(d)}=\rho.
-\]
+$$
 
 The relative effect of one additional displacement step does not depend on
 reference depth.
 
 ## 10.2 Persistent head
 
-\[
+$$
 \lim_{k\to\infty}w_1=1-\rho.
-\]
+$$
 
 ## 10.3 Monotonicity
 
-Since \(0<\rho<1\),
+Since $0<\rho<1$,
 
-\[
+$$
 q(d+1)<q(d).
-\]
+$$
 
 ## 10.4 Persistence consistency for demotion
 
-For a downward move from reference rank \(i\) to predicted rank \(j\ge i\),
+For a downward move from reference rank $i$ to predicted rank $j\ge i$,
 
-\[
+$$
 w_i\rho^{j-i}
 =
 \frac{(1-\rho)\rho^{j-1}}{1-\rho^k}.
 \tag{24}
-\]
+$$
 
 Thus a demoted item's weighted contribution equals the reference-mass scale of
 its deeper destination rank.
@@ -686,45 +686,45 @@ evaluation protocol.
 
 ## 11.1 Semantic calibration
 
-If a task declares that displacement \(d^\star\) should retain fraction
-\(r^\star\), then
+If a task declares that displacement $d^\star$ should retain fraction
+$r^\star$, then
 
-\[
+$$
 \boxed{
 h=-\frac{d^\star\ln2}{\ln r^\star}.}
 \tag{25}
-\]
+$$
 
 For example, retaining 80% credit after two ranks implies
 
-\[
+$$
 h\approx6.21.
-\]
+$$
 
 ![Semantic half-life calibration](images/half_life_semantic_calibration.png)
 
-Because the same \(h\) also determines head weighting, semantic calibration
+Because the same $h$ also determines head weighting, semantic calibration
 should acknowledge the shared-persistence assumption.
 
 ## 11.2 Development-set calibration
 
 With external reference-fidelity judgments, estimate
 
-\[
+$$
 \boxed{
 h^\star=\arg\max_h A(h)}
 \tag{26}
-\]
+$$
 
-on a development set, where \(A\) can be pairwise accuracy, rank correlation,
+on a development set, where $A$ can be pairwise accuracy, rank correlation,
 or a preference-model likelihood.
 
-Freeze \(h^\star\) before held-out test evaluation.
+Freeze $h^\star$ before held-out test evaluation.
 
 ## 11.3 Sensitivity analysis
 
 If no defensible single calibration source exists, report a curve or interval
-across plausible \(h\) values.
+across plausible $h$ values.
 
 ![Half-life sensitivity](images/half_life_sensitivity.png)
 
@@ -736,9 +736,9 @@ Raw NWPS measures direct fidelity. It is not internally chance-corrected.
 
 ## 12.1 Uniform complete-permutation baseline
 
-For a uniformly random complete permutation of the same \(k\) items,
+For a uniformly random complete permutation of the same $k$ items,
 
-\[
+$$
 \boxed{
 B_{k,h}
 =
@@ -747,48 +747,48 @@ B_{k,h}
 \sum_{j=1}^{k}\rho^{|i-j|}.
 }
 \tag{27}
-\]
+$$
 
-For fixed \(h\),
+For fixed $h$,
 
-\[
+$$
 \boxed{\lim_{k\to\infty}B_{k,h}=0.}
 \tag{28}
-\]
+$$
 
-At finite \(k\), the expected score is positive because some random items land
+At finite $k$, the expected score is positive because some random items land
 near their reference positions.
 
 ## 12.2 NWPS Skill
 
-For a declared null expectation \(B<1\), define the optional reporting transform
+For a declared null expectation $B<1$, define the optional reporting transform
 
-\[
+$$
 \boxed{
 NWPS_{skill}=\frac{NWPS-B}{1-B}.
 }
 \tag{29}
-\]
+$$
 
 Then perfect fidelity maps to 1 and null expectation maps to 0.
 
 The minimum possible value is
 
-\[
+$$
 \boxed{-\frac{B}{1-B},}
 \tag{30}
-\]
+$$
 
-not generally \(-1\).
+not generally $-1$.
 
 ![Raw and chance-adjusted reporting](images/raw_vs_chance_adjusted_h3.png)
 
 ## 12.3 Query-specific nulls
 
-For heterogeneous queries, one universal \(B\) is usually inappropriate.
+For heterogeneous queries, one universal $B$ is usually inappropriate.
 A report should either:
 
-- compute \(B_q\) per query and aggregate per-query skill scores;
+- compute $B_q$ per query and aggregate per-query skill scores;
 - or state a different null-generation and aggregation rule explicitly.
 
 For partial, tied, or censored outputs, Monte Carlo null models should preserve
@@ -805,15 +805,15 @@ reference once.
 For point-valued evaluation, and for the default itemwise censoring relaxation,
 expected complexity is
 
-\[
+$$
 \boxed{O(k+m)}
-\]
+$$
 
 with
 
-\[
+$$
 \boxed{O(m)}
-\]
+$$
 
 auxiliary memory. The optional strict joint-assignment censoring bound adds a
 Hungarian assignment step; if `u` reference items are unseen, the assignment
@@ -839,10 +839,10 @@ This avoids changing tuple shape according to a boolean mode.
 ## 13.2 Numerical stability
 
 The implementation computes geometric normalizers with `math.expm1` rather than
-naive subtraction. This preserves stable behavior when \(h\) is extremely large
-and \(\rho\) is numerically close to one.
+naive subtraction. This preserves stable behavior when $h$ is extremely large
+and $\rho$ is numerically close to one.
 
-The test suite includes half-lives from \(10^{-12}\) through \(10^{300}\).
+The test suite includes half-lives from $10^{-12}$ through $10^{300}$.
 
 ## 13.3 Strict API
 
@@ -905,7 +905,7 @@ reference ranking.
 To avoid circular validation, the synthetic oracle uses a different structure:
 
 - logarithmic head weights;
-- hyperbolic positional credit \(1/(1+d)\).
+- hyperbolic positional credit $1/(1+d)$.
 
 This oracle is a stress-test target only, not human ground truth.
 
@@ -961,11 +961,11 @@ The synthetic oracle again differs structurally from NWPS. Data are split into:
 - 240 development cases;
 - 240 held-out test cases.
 
-The development objective selects \(h\) by Spearman agreement.
+The development objective selects $h$ by Spearman agreement.
 
 Current deterministic result:
 
-- selected \(h=3.0561\);
+- selected $h=3.0561$;
 - development Spearman = 0.8752;
 - held-out test Spearman = 0.8766;
 - held-out pairwise accuracy = 0.8605.
@@ -1059,7 +1059,7 @@ For small complete rankings, every permutation is enumerated to verify:
 - equality between the analytic random baseline and the exhaustive arithmetic
   mean.
 
-The random-baseline equality is checked through \(n=7\).
+The random-baseline equality is checked through $n=7$.
 
 ## 20.2 Censoring verification
 
@@ -1083,7 +1083,7 @@ reference tie blocks.
 ## 20.4 Numerical extremes
 
 Weights and identity are tested for half-lives ranging from
-\(10^{-12}\) to \(10^{300}\).
+$10^{-12}$ to $10^{300}$.
 
 Current suite result:
 
@@ -1220,15 +1220,15 @@ NWPS is a specialized directional similarity for **reference-ranking fidelity**.
 Its definition combines persistent reference-position mass with exponential
 identity-specific positional credit:
 
-\[
+$$
 NWPS=\sum_iw_iq_i.
-\]
+$$
 
 Its central diagnostic interpretation is
 
-\[
+$$
 \boxed{NWPS=C\,F,}
-\]
+$$
 
 which separates weighted coverage from conditional positional fidelity.
 
