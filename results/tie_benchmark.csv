@@ -1,0 +1,6 @@
+case,NWPS_tied,RBO_a,note
+same_reference_tie,1.0,0.9590649997408341,RBO^a treats ties as uncertainty; NWPS reference ties encode indifference.
+reference_tie_resolved_BC,1.0,0.9590649997408341,RBO^a treats ties as uncertainty; NWPS reference ties encode indifference.
+reference_tie_resolved_CB,1.0,0.9590649997408341,RBO^a treats ties as uncertainty; NWPS reference ties encode indifference.
+prediction_top_tie_against_strict,0.936716420165282,0.8968502629920498,RBO^a treats ties as uncertainty; NWPS reference ties encode indifference.
+misplaced_reference_tie,0.8232046297295914,0.7118305254657682,RBO^a treats ties as uncertainty; NWPS reference ties encode indifference.

@@ -1,0 +1,12 @@
+metric,n_scenarios,spearman_vs_synthetic_oracle,direction
+NWPS,40,0.9849906191369607,higher-is-better
+RDQ_M2_a1,40,0.9722326454033772,higher-is-better
+RDQ_M2_a4,40,0.8900562851782365,higher-is-better
+RBO,40,0.977861163227017,higher-is-better
+RBA_upper,40,0.9298311444652909,higher-is-better
+NDCG_linear,40,0.8454033771106942,higher-is-better
+WS,35,0.9554621848739496,higher-is-better
+WeightedFootruleSim,35,0.9820728291316526,higher-is-better
+WeightedKendall,35,0.9773109243697479,higher-is-better
+tau_AP,35,0.9362300827199824,higher-is-better
+CanberraDistance,35,0.9935574229691878,lower-is-better

@@ -1,0 +1,80 @@
+{
+  "status": "synthetic system-ranking stability and power demonstration; not external validation",
+  "seed": 20260909,
+  "n_queries": 800,
+  "systems": {
+    "S0_near_exact": {
+      "swap": 0.04,
+      "move": 0.02,
+      "omit": 0.01
+    },
+    "S1_mild": {
+      "swap": 0.08,
+      "move": 0.04,
+      "omit": 0.02
+    },
+    "S2_moderate": {
+      "swap": 0.15,
+      "move": 0.08,
+      "omit": 0.04
+    },
+    "S3_order_drift": {
+      "swap": 0.25,
+      "move": 0.16,
+      "omit": 0.02
+    },
+    "S4_coverage_drift": {
+      "swap": 0.08,
+      "move": 0.04,
+      "omit": 0.12
+    },
+    "S5_severe": {
+      "swap": 0.3,
+      "move": 0.22,
+      "omit": 0.15
+    }
+  },
+  "full_system_orders": {
+    "NWPS": [
+      "S0_near_exact",
+      "S1_mild",
+      "S2_moderate",
+      "S3_order_drift",
+      "S4_coverage_drift",
+      "S5_severe"
+    ],
+    "RDQ": [
+      "S0_near_exact",
+      "S1_mild",
+      "S3_order_drift",
+      "S2_moderate",
+      "S4_coverage_drift",
+      "S5_severe"
+    ],
+    "RBO": [
+      "S0_near_exact",
+      "S1_mild",
+      "S2_moderate",
+      "S3_order_drift",
+      "S4_coverage_drift",
+      "S5_severe"
+    ],
+    "RBA": [
+      "S0_near_exact",
+      "S1_mild",
+      "S3_order_drift",
+      "S2_moderate",
+      "S4_coverage_drift",
+      "S5_severe"
+    ],
+    "NDCG": [
+      "S0_near_exact",
+      "S1_mild",
+      "S3_order_drift",
+      "S2_moderate",
+      "S4_coverage_drift",
+      "S5_severe"
+    ]
+  },
+  "power_test": "paired t-test rejection rate at alpha=0.05 over repeated subsamples"
+}

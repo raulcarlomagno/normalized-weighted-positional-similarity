@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use NWPS in research, please cite this research release."
+title: "Normalized Weighted Positional Similarity (NWPS): Reference-Fidelity Evaluation for Ranked Lists"
+type: software
+authors:
+  - family-names: Carlomagno
+    given-names: Raul
+version: 0.1.0
+license: Apache-2.0
+date-released: 2026-09-09
+abstract: >-
+  Research implementation and technical report for Normalized Weighted
+  Positional Similarity (NWPS), a directional measure of fidelity to a
+  privileged reference ranking.
+keywords:
+  - ranking evaluation
+  - ranking similarity
+  - information retrieval
+  - reranking
+  - reference fidelity

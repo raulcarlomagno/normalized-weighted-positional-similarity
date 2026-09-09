@@ -1,0 +1,74 @@
+{
+  "half_life": 3.0,
+  "rbo_rba_phi": 0.7937005259840998,
+  "n_scenarios": 40,
+  "warning": "Synthetic controlled benchmark only; oracle is not human ground truth.",
+  "top_correlations": [
+    {
+      "metric": "CanberraDistance",
+      "n_scenarios": 35,
+      "spearman_vs_synthetic_oracle": 0.9935574229691878,
+      "direction": "lower-is-better"
+    },
+    {
+      "metric": "NWPS",
+      "n_scenarios": 40,
+      "spearman_vs_synthetic_oracle": 0.9849906191369607,
+      "direction": "higher-is-better"
+    },
+    {
+      "metric": "WeightedFootruleSim",
+      "n_scenarios": 35,
+      "spearman_vs_synthetic_oracle": 0.9820728291316526,
+      "direction": "higher-is-better"
+    },
+    {
+      "metric": "RBO",
+      "n_scenarios": 40,
+      "spearman_vs_synthetic_oracle": 0.977861163227017,
+      "direction": "higher-is-better"
+    },
+    {
+      "metric": "WeightedKendall",
+      "n_scenarios": 35,
+      "spearman_vs_synthetic_oracle": 0.9773109243697479,
+      "direction": "higher-is-better"
+    },
+    {
+      "metric": "RDQ_M2_a1",
+      "n_scenarios": 40,
+      "spearman_vs_synthetic_oracle": 0.9722326454033772,
+      "direction": "higher-is-better"
+    },
+    {
+      "metric": "WS",
+      "n_scenarios": 35,
+      "spearman_vs_synthetic_oracle": 0.9554621848739496,
+      "direction": "higher-is-better"
+    },
+    {
+      "metric": "tau_AP",
+      "n_scenarios": 35,
+      "spearman_vs_synthetic_oracle": 0.9362300827199824,
+      "direction": "higher-is-better"
+    },
+    {
+      "metric": "RBA_upper",
+      "n_scenarios": 40,
+      "spearman_vs_synthetic_oracle": 0.9298311444652909,
+      "direction": "higher-is-better"
+    },
+    {
+      "metric": "RDQ_M2_a4",
+      "n_scenarios": 40,
+      "spearman_vs_synthetic_oracle": 0.8900562851782365,
+      "direction": "higher-is-better"
+    },
+    {
+      "metric": "NDCG_linear",
+      "n_scenarios": 40,
+      "spearman_vs_synthetic_oracle": 0.8454033771106942,
+      "direction": "higher-is-better"
+    }
+  ]
+}

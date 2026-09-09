@@ -1,0 +1,16 @@
+{
+  "status": "synthetic calibration pipeline demonstration; not external validation",
+  "seed": 20260909,
+  "n_candidates": 1200,
+  "split_sizes": {
+    "train": 720,
+    "dev": 240,
+    "test": 240
+  },
+  "calibration_objective": "maximize Spearman correlation with an independent synthetic fidelity oracle on dev",
+  "selected_half_life": 3.0560909954329682,
+  "dev_spearman": 0.875165264829452,
+  "test_spearman": 0.876598864274446,
+  "test_pairwise_accuracy": 0.8604806408544726,
+  "oracle": "logarithmic reference weights with hyperbolic positional credit; distinct from NWPS"
+}

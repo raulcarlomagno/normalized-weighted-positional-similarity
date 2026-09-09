@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nwps"
+version = "0.1.0"
+description = "Normalized Weighted Positional Similarity for reference-ranking fidelity"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Raul Carlomagno"}]
+license = {text = "Apache-2.0"}
+keywords = ["ranking", "similarity", "information-retrieval", "reranking", "evaluation"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+]
+
+[project.optional-dependencies]
+tight = ["numpy>=1.24", "scipy>=1.10"]
+research = ["numpy>=1.24", "scipy>=1.10", "pandas>=2.0", "matplotlib>=3.7", "scikit-learn>=1.3"]
+test = ["pytest>=7.0", "numpy>=1.24", "scipy>=1.10"]
+
+[tool.setuptools.package-data]
+nwps = ["py.typed"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
