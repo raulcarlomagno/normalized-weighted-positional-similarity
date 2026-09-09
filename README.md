@@ -15,6 +15,29 @@ It is designed for cases where the evaluator cares about:
 The full mathematical specification is in [`nwps_report.md`](nwps_report.md).
 A structured prior-art review is in [`docs/prior_art_review.md`](docs/prior_art_review.md).
 
+## Installation
+
+NWPS is not currently published on PyPI. Install it from a local clone:
+
+```bash
+git clone https://github.com/raulcarlomagno/normalized-weighted-positional-similarity.git
+cd normalized-weighted-positional-similarity
+python -m pip install -e .
+```
+
+To install the optional dependencies for tight censoring bounds:
+
+```bash
+python -m pip install -e ".[tight]"
+```
+
+For development and tests:
+
+```bash
+python -m pip install -e ".[test]"
+pytest
+```
+
 ## Core definition
 
 Let `h > 0` be the **rank half-life** and define
@@ -187,7 +210,8 @@ nwps(
 ```
 
 The tight option assigns unseen reference items to distinct future ranks and
-requires NumPy/SciPy (`pip install nwps[tight]`).
+requires NumPy/SciPy. Install those dependencies with
+`python -m pip install -e ".[tight]"` from the repository root.
 
 ## Tie-aware API
 
